@@ -61,6 +61,8 @@ game.party.push(pokemon[4])
 game.party.push(pokemon[11])
 game.party.push(pokemon[22])
 
+// console.log(game)
+
 /*
 Exercise 6
 1. Set the `completed` property to true for gyms with a difficulty below 3.
@@ -69,3 +71,47 @@ Exercise 6
 
 Solve Exercise 6 here:
 */
+
+game.gyms.forEach((item)=>{
+  if (item.difficulty < 3) {
+    item.completed = true;
+  }
+})
+
+// console.log(game)
+
+/*
+Exercise 7
+1. Evolve the starter Pokémon you added to your party earlier. Each starter Pokémon evolves into a specific one.
+2. How would you replace the current starter Pokémon in your party with its evolved form?
+
+Hint: 
+  - Pokemon 1: Bulbasaur evolves into Pokemon 2: Ivysaur
+  - Pokemon 4: Charmander evolves into Pokemon 5: Charmeleon
+  - Pokemon 7: Squirtle evolves into Pokemon 8: Wartortle
+  - Pokemon 25: Pikachu evolves into Pokemon 26: Raichu
+
+More Hints: The existing starter Pokemon will be *replaced* in your party with the Pokemon it evolved into. When working with an array of objects, the splice() array method is ideal for replacing one element with another. 
+
+
+Solve Exercise 7 here:
+*/
+// const pokeIndex = pokemon.findIndex()
+let evolve
+const theParty = game.party
+for (let i=0; i<theParty.length; i++){
+  // game.party.forEach((item) => 
+  if ( theParty[i].starter){
+    for (let j=0; j<pokemon.length; j++){
+      if (theParty[i].number === pokemon[j].number){
+        evolve = pokemon[j+1]
+      }
+    }
+    // const partyIndex = game.party.findIndex((theParty[i])=>{})
+      theParty.splice(i,1,evolve)
+    //console.log(partyIndex);
+    
+  }
+}
+    // console.log(evolve)
+    console.log(game)
